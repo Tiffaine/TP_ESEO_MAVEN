@@ -28,24 +28,20 @@ public class TestController {
 	    		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/maven?useLegacyDatetimeCode=false&serverTimezone=Europe/Paris","root","");
 	    		Statement stmt = conn.createStatement();
 	    		String sql_query = "SELECT * FROM `ville_france`";
-	    		ResultSet result = stmt.executeQuery(sql_query);
-	    		
+	    		System.out.println("sql_query"+sql_query);
+	    		ResultSet result = stmt.executeQuery(sql_query);	    		
 	    		while(result.next()) { 
-//	    			System.out.println("*****************");
-//	    			System.out.println(result.getString("Code_commune_INSEE"));
-//	    			System.out.println(result.getString("Nom_commune"));
-//	    			System.out.println(result.getString("Code_postal"));
-//	    			System.out.println(result.getString("Libelle_acheminement"));
-//	    			System.out.println("*****************");
-	    			listeVilles.add(new Ville(result.getString("Code_commune_INSEE"),result.getString("Nom_commune"),result.getString("Code_postal"),result.getString("Latitude"),result.getString("Longitude")));
+	    			System.out.println("***********************");
+	    			System.out.println(result.getString("Code_commune_INSEE"));
+	    			System.out.println(result.getString("Nom_commune"));
+	    			System.out.println(result.getString("Code_postal"));
+	    			System.out.println(result.getString("Libelle_acheminement"));
 	    			
-	    	
-	    		}
-	    		
+	    			listeVilles.add(new Ville(result.getString("Code_commune_INSEE"),result.getString("Nom_commune"),result.getString("Code_postal"),result.getString("Latitude"),result.getString("Longitude")));
+	    		}	    		
 	    		result.close();
 	    		stmt.close();
-	    		conn.close();
-	    		
+	    		conn.close();	    		
 	    		}
 	    	
 	    		
@@ -81,6 +77,7 @@ public class TestController {
 		
 		@RequestMapping(value="/testpost", method=RequestMethod.POST)
 		@ResponseBody
+		
 		public void post(@RequestParam(required = false, value="value") String nomCommune, String codeCommune) {
 			try {
 	    		DriverManager.registerDriver(new com.mysql.jdbc.Driver());
@@ -150,19 +147,13 @@ public class TestController {
 	    			System.out.println(result.getString("Code_postal"));
 	    			System.out.println(result.getString("Libelle_acheminement"));
 	    			System.out.println("*****************");
-	    			listeVilles.add(new Ville(result.getString("Code_commune_INSEE"),result.getString("Nom_commune"),result.getString("Code_postal"),result.getString("Latitude"),result.getString("Longitude")));
-	    			
-	    	
-	    		}
-	    		
+	    			listeVilles.add(new Ville(result.getString("Code_commune_INSEE"),result.getString("Nom_commune"),result.getString("Code_postal"),result.getString("Latitude"),result.getString("Longitude")));	    	
+	    		}	    		
 	    		result.close();
 	    		stmt.close();
 	    		conn.close();
 	    		
-	    		}
-	    	
-	    		
-	    		
+	    		}   		
 	    	catch (SQLException e) {
 	    		e.printStackTrace();
 	    	}
