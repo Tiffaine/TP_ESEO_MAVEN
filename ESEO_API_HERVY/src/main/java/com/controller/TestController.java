@@ -76,8 +76,7 @@ public class TestController {
 		}
 		
 		@RequestMapping(value="/testpost", method=RequestMethod.POST)
-		@ResponseBody
-		
+		@ResponseBody		
 		public void post(@RequestParam(required = false, value="value") String nomCommune, String codeCommune) {
 			try {
 	    		DriverManager.registerDriver(new com.mysql.jdbc.Driver());
