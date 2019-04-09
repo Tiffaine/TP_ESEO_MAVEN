@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>com</groupId>
-	<artifactId>eseo_api_rest</artifactId>
+	<artifactId>ESEO_API_HERVY</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	
-	<name>eseo_api_rest</name>
+	<name>ESEO_API_HERVY</name>
 	<description>Demo project for API REST</description>
 	
 	<parent>
