@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.controller.TestController;
+import com.controller.VilleController;
 
 @SpringBootApplication
-@ComponentScan(basePackageClasses=TestController.class)
+@ComponentScan(basePackageClasses=VilleController.class)
 public class App 
 {
     public static void main( String[] args )
